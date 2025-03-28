@@ -94,7 +94,7 @@ export const ShoppingList = () => {
     return (
         <div className="shopping-list">
             <button onClick={handleShareClick} className="share-button">
-                📤 Teilen
+                📤 Liste Teilen
             </button>
 
             {showShareModal && (
