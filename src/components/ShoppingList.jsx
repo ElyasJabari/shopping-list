@@ -48,7 +48,6 @@ export const ShoppingList = () => {
             category: selectedCategory
         });
         setInputText('');
-        setSelectedCategory('Sonstiges');
     };
 
     const handleShareClick = async () => {
