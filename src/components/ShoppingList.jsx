@@ -20,9 +20,8 @@ export const ShoppingList = () => {
     } = useProducts();
 
     const [inputText, setInputText] = useState('');
-    const [selectedCategory, setSelectedCategory] = useState('Rest');
+    const [selectedCategory, setSelectedCategory] = useState('Sonstiges');
     const [filter, setFilter] = useState('all');
-    const [editingProductId, setEditingProductId] = useState(null);
     const [showConfirmDialog, setShowConfirmDialog] = useState(false);
     const [showShareModal, setShowShareModal] = useState(false);
     const [shareLink, setShareLink] = useState('');
@@ -44,19 +43,12 @@ export const ShoppingList = () => {
         e.preventDefault();
         if (!inputText.trim()) return;
 
-        if (editingProductId) {
-            updateProduct(editingProductId, {
-                name: inputText,
-                category: selectedCategory
-            });
-            setEditingProductId(null);
-        } else {
-            addProduct({
-                name: inputText,
-                category: selectedCategory
-            });
-        }
+        addProduct({
+            name: inputText,
+            category: selectedCategory
+        });
         setInputText('');
+        setSelectedCategory('Sonstiges');
     };
 
     const handleShareClick = async () => {
@@ -110,7 +102,7 @@ export const ShoppingList = () => {
                 onInputChange={(e) => setInputText(e.target.value)}
                 selectedCategory={selectedCategory}
                 onCategoryChange={setSelectedCategory}
-                isEditing={!!editingProductId}
+                isEditing={false}
             />
 
             <FilterControls
@@ -130,10 +122,11 @@ export const ShoppingList = () => {
                             category={category}
                             products={categoryProducts}
                             onToggleCheck={(id) => updateProduct(id, { checked: !products.find(p => p.id === id).checked })}
-                            onEdit={(product) => {
-                                setInputText(product.name);
-                                setSelectedCategory(product.category);
-                                setEditingProductId(product.id);
+                            onEdit={(updatedProduct) => {
+                                updateProduct(updatedProduct.id, {
+                                    name: updatedProduct.name,
+                                    category: updatedProduct.category
+                                });
                             }}
                             onDelete={deleteProduct}
                         />

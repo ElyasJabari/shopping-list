@@ -247,6 +247,24 @@ body {
   opacity: 1;
 }
 
+.inline-edit-form {
+  display: inline;
+  flex: 1;
+  margin: 0 10px;
+}
+
+.inline-edit-input {
+  border: 2px solid var(--border) !important;
+  border-radius: var(--radius);
+  padding: 5px 10px;
+  font-size: inherit;
+  width: 100%;
+  background: white;
+  outline: none;
+  transition: border-color 0.3s ease;
+  text-align: center;
+}
+
 .product-name {
   flex: 1;
   transition: opacity 0.2s ease;
@@ -280,6 +298,11 @@ body {
   transform: scale(1.1);
 }
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
 .dropdown-menu {
   position: absolute;
   right: 0;
@@ -289,8 +312,7 @@ body {
   box-shadow: var(--shadow);
   padding: 0.5rem;
   min-width: 150px;
-  z-index: 1;
-  display: none;
+  z-index: 10;
 }
 
 .dropdown:hover .dropdown-menu {

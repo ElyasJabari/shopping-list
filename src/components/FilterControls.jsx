@@ -29,7 +29,7 @@ export const FilterControls = ({
                 onClick={onClearAll}
                 className="clear-button"
             >
-                🗑️ Alle Löschen
+                🗑️ Alle löschen
             </button>
         </div>
     );

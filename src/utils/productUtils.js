@@ -1,4 +1,4 @@
-export const categories = ['Obst', 'Gemüse', 'Milchprodukte', 'Rest'];
+export const categories = ['Obst', 'Gemüse', 'Milchprodukte', 'Sonstiges'];
 
 export const toMinimalProducts = (products) => {
     return products.map(p => [
@@ -13,7 +13,7 @@ export const fromMinimalProducts = (minimalProducts) => {
     return minimalProducts.map(m => ({
         id: Date.now() + Math.random(),
         name: m[0] + m[1],
-        category: categories.find(c => c[0] === m[2]) || 'Rest',
+        category: categories.find(c => c[0] === m[2]) || 'Sonstiges',
         checked: !!m[3]
     }));
 };
