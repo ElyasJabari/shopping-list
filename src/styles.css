@@ -113,6 +113,8 @@ body {
   border-radius: var(--radius);
   font-size: 1rem;
   transition: border-color 0.3s ease;
+  text-align: start; /* Automatisch LTR/RTL basierend auf Inhalt */
+  unicode-bidi: plaintext; /* Unterstützt gemischte Richtungen */
 }
 
 .text-input:focus {
@@ -262,7 +264,8 @@ body {
   background: white;
   outline: none;
   transition: border-color 0.3s ease;
-  text-align: center;
+  text-align: center; /* Automatisch LTR/RTL basierend auf Inhalt */
+  unicode-bidi: plaintext; /* Unterstützt gemischte Richtungen */
 }
 
 .product-name {
